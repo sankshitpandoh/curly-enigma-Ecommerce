@@ -12,7 +12,7 @@ const MapStateToProps = (state) => {
 
 const MapDispatchToProps = (dispatch) => {
     return {
-        logUserIn: () => dispatch(logUserIn)
+        logUserIn: () => dispatch(logUserIn())
     };
 };
 
@@ -27,13 +27,13 @@ class Home extends React.Component{
         console.log(this.props.UserLoggedIn)
     }
 
-    getUserData = async() => {
-        let x = localStorage.getItem("userId");
-        console.log(x)
-    }
+    // getUserData = async() => {
+    //     let x = localStorage.getItem("userId");
+    //     console.log(x)
+    // }
 
     render(){
-        return(
+        return( 
             <>
             <Header />
                 <button onClick = {this.props.logUserIn}>hey</button>
