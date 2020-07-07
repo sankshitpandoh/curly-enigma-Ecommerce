@@ -1,17 +1,30 @@
 import React from 'react';
 import Header from './Header/Header.js';
+import {connect} from 'react-redux';
+import {logUserIn , logUserOut} from '../../actions/actions.js'
 
+
+const MapStateToProps = (state) => {
+    return {    
+        UserLoggedIn: state.UserLoggedIn
+    };
+};
+
+const MapDispatchToProps = (dispatch) => {
+    return {
+        logUserIn: () => dispatch(logUserIn)
+    };
+};
 
 class Home extends React.Component{
     state = {
         wishList: [],
-        userLoggedIn: false
+        // userLoggedIn: false
     }
 
-    componentDidMount(){
-        this.state.userLoggedIn &&
-            this.getUserData()
 
+    componentDidMount(){
+        console.log(this.props.UserLoggedIn)
     }
 
     getUserData = async() => {
@@ -21,9 +34,12 @@ class Home extends React.Component{
 
     render(){
         return(
+            <>
             <Header />
+                <button onClick = {this.props.logUserIn}>hey</button>
+            </>
         )
     }
 }
 
-export default Home;
+export default connect(MapStateToProps, MapDispatchToProps)(Home);

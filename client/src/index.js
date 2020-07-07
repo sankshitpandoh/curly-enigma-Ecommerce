@@ -10,10 +10,13 @@ import WishList from './Components/user/WishList';
 import UserProfile from './Components/user/UserProfile';
 import Products from './Components/Home/Products';
 import PageNotFound from './Components/PageNotFound';
+import Store from './store/store.js'
+import {Provider} from 'react-redux';
 
 class App extends React.Component{
   render(){
     return(
+      <Provider store = {Store}>
       <BrowserRouter>
         <Switch>
           <Route path = "/" component = {Home} exact/>
@@ -24,6 +27,7 @@ class App extends React.Component{
           <Route path = "*" component = {PageNotFound} />
         </Switch>
       </BrowserRouter>
+      </Provider>
     )
   }
 }
