@@ -1,0 +1,8 @@
+.header-main{
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+}
+.header-main span{
+    color: #000;
+    font-size: 30px;
+}
