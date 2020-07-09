@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../Stylesheets/login/login.css';
+import { Link } from 'react-router-dom';
 // import LogInArt from '../../Images/loginArt.jpg'
 
 class LogIn extends React.Component{
@@ -27,7 +28,7 @@ class LogIn extends React.Component{
         this.state.username.trim() !== "" ?
             this.state.password.trim() !== "" ?
              (() => {
-                this.props.checkCredentials(this.state.username, this.state.password);
+                // this.props.checkCredentials(this.state.username, this.state.password);
                 this.setState({
                     username: "",
                     password: ""
@@ -70,29 +71,43 @@ class LogIn extends React.Component{
     render(){
         return(
             <div className="log-in d-flex align-items-center">
+                <Link to = "/">
+                    <span title="back home" className="close-portal">
+                        &#10006;
+                    </span>
+                </Link>
+
                 <div className="col-8 p-0">
                     <div className="login-art-container"></div>
                 </div>
+
                 <div className="col-4 p-0">
                     <div className="log-in-container d-flex flex-column justify-content-center w-100 my-0 mx-auto p-5">
-                    {
-                    this.state.logInError &&
-                        <div className="log-in-error d-flex p-1 justify-content-center">
-                            {this.state.logInErrorMessage}
-                        </div>
-                    }
+                        {this.state.logInError &&
+                            <div className="log-in-error d-flex p-1 justify-content-center">
+                                {this.state.logInErrorMessage}
+                            </div>
+                        }
                         <form className="d-flex flex-column align-items-center w-100 mx-auto" onSubmit={this.handleSubmit}>
                             <h2 className="mr-auto mb-3"> Log In to Enigma</h2>
-                            <span className="d-flex flex-column w-100 mb-4">
-                                Username:
-                                <input className="py-1 pl-0 pr-1" type="text" placeholder="User Name here" value={this.state.username} onChange={this.handleUserName} />
-                            </span>
-                            <span className="d-flex flex-column w-100 mb-4">
-                                Password:
-                                <input className="py-1 pl-0 pr-1" type="password" placeholder="Password here" value={this.state.password} onChange={this.handlePassword} />
-                            </span>
-                            <input className="mr-auto mb-4 w-50 px-2 py-1 submit-button" type="submit" value="Log In" />
-                            <span className="sign-up-message">Don't have an account? <strong onClick={this.props.switchingLogin}>Click here </strong> to SignUp</span>
+
+                                <span className="d-flex flex-column w-100 mb-4">
+                                    Username:
+                                    <input className="py-1 pl-0 pr-1" type="text" placeholder="User Name here" value={this.state.username} onChange={this.handleUserName} />
+                                </span>
+
+                                <span className="d-flex flex-column w-100 mb-4">
+                                    Password:
+                                    <input className="py-1 pl-0 pr-1" type="password" placeholder="Password here" value={this.state.password} onChange={this.handlePassword} />
+                                </span>
+
+                                <input className="mr-auto mb-4 w-50 px-2 py-1 submit-button" type="submit" value="Log In" />
+                                <span className="sign-up-message">
+                                    Don't have an account? 
+                                    <strong onClick={this.props.switchingLogin}>Click here 
+                                    </strong> 
+                                    to SignUp
+                                </span>
                         </form>
                     </div>
                 </div>

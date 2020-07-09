@@ -1,6 +1,19 @@
 .log-in{
     height: 100vh;
 }
+.log-in .close-portal{
+    position: absolute;
+    top: 5px;
+    font-size: 25px;
+    right: 5px;
+    cursor: pointer;
+    z-index: 10;
+    color: #000;
+    transition: 0.25s all;
+}
+.log-in .close-portal:hover{
+    color: #444;
+}
 .log-in .login-art-container{
     background: url('../../Images/loginArt.jpg') center no-repeat;
     height: 100vh;  

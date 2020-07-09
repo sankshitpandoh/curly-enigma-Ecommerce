@@ -1,5 +1,19 @@
 .sign-up{
     height: 100vh;
+    position: relative;
+}
+.sign-up .close-portal{
+    position: absolute;
+    top: 5px;
+    font-size: 25px;
+    right: 5px;
+    cursor: pointer;
+    z-index: 10;
+    color: #000;
+    transition: 0.25s all;
+}
+.sign-up .close-portal:hover{
+    color: #444;
 }
 .sign-up .signup-art-container{
     background: url('../../Images/signupart.png') center no-repeat;
