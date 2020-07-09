@@ -1,6 +1,7 @@
 .header-main{
     background-color: #fff;
-    border-bottom: 2px solid #000;
+    background: url('../../../Images//banner.jpg') no-repeat center;
+    /* border-bottom: 2px solid #000; */
 }
 .header-main span{
     color: #000;

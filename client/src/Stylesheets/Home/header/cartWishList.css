@@ -1,5 +1,4 @@
 .menu-container{
-    background-color: #fff;
     border-radius: 2px;
 }
 .menu-container .single-option{
@@ -21,6 +20,7 @@
     color: #000;
 }
 .menu-container .cart-price{
+    background-color: #fff;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
 }

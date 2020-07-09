@@ -1,6 +1,6 @@
 import React from 'react';
-// import LogIn from './login.js';
-// import SignUp from './signUp.js';
+import LogIn from './login.js';
+import SignUp from './signUp.js';
 import { Redirect } from 'react-router-dom';
 
 
@@ -105,15 +105,15 @@ class LogInDisplay extends React.Component{
     render(){
         return(
             <>
-                {this.state.userLoggedIn &&
+                {this.state.userLoggedIn ?
                 <Redirect to={{
                         pathname : "/"
                         }} />
-                // :
-                // this.state.logInPage ?
-                // <LogIn switchingLogin = {this.switchingLogin} hoverMenu = {this.state.hoverMenu} error = {this.state.error} checkCredentials={this.checkCredentials} />
-                // :
-                // <SignUp uNameAvailable = {this.state.uNameAvailable} checkUserName = {this.handleSignUpUserName} switchingLogin = {this.switchingLogin} registerUser = {this.registerUser} />
+                :
+                this.state.logInPage ?
+                <LogIn switchingLogin = {this.switchingLogin} hoverMenu = {this.state.hoverMenu} error = {this.state.error} checkCredentials={this.checkCredentials} />
+                :
+                <SignUp uNameAvailable = {this.state.uNameAvailable} checkUserName = {this.handleSignUpUserName} switchingLogin = {this.switchingLogin} registerUser = {this.registerUser} />
                 }
             </>
         )
