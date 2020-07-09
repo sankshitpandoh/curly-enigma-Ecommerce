@@ -1,5 +1,6 @@
 import React from 'react';
-// import '../../stylesheets/login/login.css';
+import '../../Stylesheets/login/login.css';
+// import LogInArt from '../../Images/loginArt.jpg'
 
 class LogIn extends React.Component{
     state = {
@@ -42,7 +43,7 @@ class LogIn extends React.Component{
                         logInError: false,
                         logInErrorMessage: ""
                     })
-                }.bind(this), 3000)
+                }.bind(this), 2000)
             })
              :
              this.setState({
@@ -58,41 +59,42 @@ class LogIn extends React.Component{
             })
              
     }
+    mountStyle = () => {
+        document.querySelector('.login-art-container').style.width = "100%"
+    }
+
+    componentDidMount(){
+        setTimeout(this.mountStyle, 10) 
+    }
 
     render(){
         return(
             <div className="log-in d-flex align-items-center">
-                {this.props.error &&
-                <div className="log-in-error d-flex p-1 justify-content-center">
-                    Invalid Login Credentials
+                <div className="col-8 p-0">
+                    <div className="login-art-container"></div>
                 </div>
-                }
-                {
+                <div className="col-4 p-0">
+                    <div className="log-in-container d-flex flex-column justify-content-center w-100 my-0 mx-auto p-5">
+                    {
                     this.state.logInError &&
-                    <div className="log-in-error d-flex p-1 justify-content-center">
-                        {this.state.logInErrorMessage}
+                        <div className="log-in-error d-flex p-1 justify-content-center">
+                            {this.state.logInErrorMessage}
+                        </div>
+                    }
+                        <form className="d-flex flex-column align-items-center w-100 mx-auto" onSubmit={this.handleSubmit}>
+                            <h2 className="mr-auto mb-3"> Log In to Enigma</h2>
+                            <span className="d-flex flex-column w-100 mb-4">
+                                Username:
+                                <input className="py-1 pl-0 pr-1" type="text" placeholder="User Name here" value={this.state.username} onChange={this.handleUserName} />
+                            </span>
+                            <span className="d-flex flex-column w-100 mb-4">
+                                Password:
+                                <input className="py-1 pl-0 pr-1" type="password" placeholder="Password here" value={this.state.password} onChange={this.handlePassword} />
+                            </span>
+                            <input className="mr-auto mb-4 w-50 px-2 py-1 submit-button" type="submit" value="Log In" />
+                            <span className="sign-up-message">Don't have an account? <strong onClick={this.props.switchingLogin}>Click here </strong> to SignUp</span>
+                        </form>
                     </div>
-                }
-                {this.props.hoverMenu &&
-                    <div className="message-container d-flex justify-content-center p-1">
-                            <p>Account sucessfully created, log in with your credentials</p>
-                    </div>
-                }
-                <div className="log-in-container d-flex flex-column w-50 my-0 mx-auto p-5">
-                    <form className="d-flex flex-column align-items-center w-100 mx-auto" onSubmit={this.handleSubmit}>
-                        <h2 className="mr-auto mb-3">Login Portal</h2>
-                        <span className="d-flex flex-column w-100 mb-4">
-                            Username:
-                            <input className="p-1" type="text" placeholder="User Name here" value={this.state.username} onChange={this.handleUserName} />
-                        </span>
-                        <span className="d-flex flex-column w-100 mb-4">
-                            Password:
-                            <input className="p-1" type="password" placeholder="Password here" value={this.state.password} onChange={this.handlePassword} />
-                        </span>
-                        <input className="ml-auto mb-4 w-25 p-2 submit-button" type="submit" value="Log In" />
-                        <span className="sign-up-message">Don't have an account? <strong onClick={this.props.switchingLogin}>Click here </strong> to SignUp</span>
-                    </form>
-
                 </div>
             </div>
         )
@@ -100,3 +102,15 @@ class LogIn extends React.Component{
 }
 
 export default LogIn;
+
+// {this.props.error &&
+//     <div className="log-in-error d-flex p-1 justify-content-center">
+//         Invalid Login Credentials
+//     </div>
+//     }
+//     {
+//     {this.props.hoverMenu &&
+//         <div className="message-container d-flex justify-content-center p-1">
+//                 <p>Account sucessfully created, log in with your credentials</p>
+//         </div>
+//     }

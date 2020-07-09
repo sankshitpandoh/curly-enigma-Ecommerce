@@ -1,0 +1,80 @@
+.sign-up{
+    height: 100vh;
+}
+.sign-up .signup-art-container{
+    background: url('../../Images/signupart.png') center no-repeat;
+    height: 100vh;  
+    width: 0%;
+    transition: 0.5s all;background-color: #000;
+}
+.sign-up-container{ 
+    position: relative;
+    height: 100vh; 
+}
+.sign-up-container h2{
+    font-family: 'Montserrat-Bold';
+    color: #11152E;
+}
+.sign-up-container span{
+    font-family: 'Montserrat-Regular';
+    position: relative;
+}
+.sign-up-container span p{
+    position: absolute;
+    left: 80%;
+    background-color: red;
+    padding: 3px;
+    bottom: 2px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #fff;
+    font-family: 'Montserrat-Regular';
+    font-size: 10px;
+}
+.sign-up-container span input{
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid #000; 
+    font-family: 'Montserrat-Regular';
+    font-weight: 300;
+    transition: 0.35s ease-in-out;
+}
+.sign-up-container span input::placeholder{
+    opacity: 0.35;
+    color: #444;
+}
+.sign-up-container button{
+    border: 0;
+    background-color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s all;
+    color: #fff;
+    font-family: 'Montserrat-Regular';
+    box-shadow: 0px 11px 9px -10px rgba(0,0,0,0.75);
+}
+.sign-up-container button:hover{
+    box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.75);
+}
+.sign-up-container button:disabled{
+    background-color: rgb(0,0,0,0.55);
+    box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.75);
+    color: #444;
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+.sign-up-container p{
+    font-family: 'Montserrat-light';
+    font-size: 13px;
+    color: #444;
+}
+.sign-up-container p strong{
+    font-family: 'Montserrat-Regular';
+    color: #000;
+    cursor: pointer;
+    transition: 0.25s all;
+}
+.sign-up-container p strong:hover{
+    text-decoration: underline;
+}
