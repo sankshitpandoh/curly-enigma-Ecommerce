@@ -30,7 +30,7 @@ class LogIn extends React.Component{
         this.state.username.trim() !== "" ?
             this.state.password.trim() !== "" ?
              (() => {
-                // this.props.checkCredentials(this.state.username, this.state.password);
+                this.props.checkCredentials(this.state.username, this.state.password);
                 this.setState({
                     username: "",
                     password: ""

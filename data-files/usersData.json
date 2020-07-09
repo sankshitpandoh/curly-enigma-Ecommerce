@@ -1,14 +1,1 @@
-[
-    {
-        "username" : "username come here",
-        "userId" : "unique user id come's here",
-        "password" : "user's hashed password is stored here",
-        "userDetails" : {
-            "name" : "name of the user",
-            "age" : "age of the user",
-            "gender" : "gender of the user"
-        },
-        "wishlist" : ["whish list product id's come here"],
-        "cart" : ["cart product id's come here"]
-    }
-]
+[{"username":"username come here","userId":"unique user id come's here","password":"user's hashed password is stored here","userDetails":{"name":"name of the user","age":"age of the user","gender":"gender of the user"},"wishlist":["whish list product id's come here"],"cart":["cart product id's come here"]},{"username":"test","userId":"0s9e0g4HHSua","password":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","userDetails":{"name":"","age":"","gender":""},"wishlist":[],"cart":[]}]

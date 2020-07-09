@@ -1,8 +1,23 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import LogIn from './login.js';
 import SignUp from './signUp.js';
-import { Redirect } from 'react-router-dom';
+import {logUserIn } from '../../actions/actions.js'
 
+
+
+const MapStateToProps = (state) => {
+    return {    
+        userLoggedIn: state.MainReducer.userLoggedIn,
+    };
+};
+
+const MapDispatchToProps = (dispatch) => {
+    return {
+        logUserIn: () => dispatch(logUserIn())
+    };
+};
 
 class LogInDisplay extends React.Component{
     state={
@@ -29,7 +44,10 @@ class LogInDisplay extends React.Component{
             userId: serverResponse.userId
         }, () => {
             this.state.userLoggedIn ?
-            localStorage.setItem("userId" , this.state.userId)
+            (() => {
+                localStorage.setItem("userId" , this.state.userId);
+                this.props.logUserIn()
+            })()
             :
             /* removing the error message after 3 seconds */
             this.setState({
@@ -126,4 +144,4 @@ class LogInDisplay extends React.Component{
     }
 }
 
-export default LogInDisplay;
+export default connect(MapStateToProps, MapDispatchToProps)(LogInDisplay);
