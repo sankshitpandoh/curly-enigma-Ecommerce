@@ -97,24 +97,24 @@ class SignUp extends React.Component{
                         <div className="d-flex flex-column w-100 mx-auto">
                             <h2 className="mr-auto mb-3">Sign up to Enigma</h2>
 
-                            <span className="mb-3 d-flex flex-column">
+                            <span className="mb-4 d-flex flex-column">
                                 Enter a Username: {!this.props.uNameAvailable && <p>username not available</p>}
                                 <input className="py-1 pl-0 pr-1" type="text" style = {{ borderBottom: `${!this.props.uNameAvailable ? "2px solid red" : ""}` }} value= {this.state.username} onChange={this.handleUserName} placeholder="Enter User name here" onBlur={this.deFocused} />
                             </span>
 
-                            <span className="mb-3 d-flex flex-column">
+                            <span className="mb-4 d-flex flex-column">
                                 Enter Password:
                                 <input className="py-1 pl-0 pr-1" type="password" value= {this.state.password} onChange={this.handlePassword} placeholder="Enter password here" />
                             </span>
 
-                            <span className="mb-3 d-flex flex-column">
+                            <span className="mb-4 d-flex flex-column">
                                 Re-Enter Password: {!this.state.pMatch && <p>Passwords don't match</p>}
                                 <input className="py-1 pl-0 pr-1" type="password" style = {{ borderBottom: `${!this.state.pMatch ? "2px solid red" : ""}` }} value= {this.state.rePassword} onChange={this.handleRePassword} placeholder="Re-type you password here" />
                             </span>
 
                             <button className="mr-auto mb-4 w-50 px-2 py-1" disabled={this.state.disabled || !this.props.uNameAvailable} onClick={this.signUp}>Sign Up</button>
                             <p>Already have an account? <strong onClick={this.props.switchingLogin}>Click here</strong> to Log In </p>
-                            
+
                         </div>
                     </div>
                 </div>

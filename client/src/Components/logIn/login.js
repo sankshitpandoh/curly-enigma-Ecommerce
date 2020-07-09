@@ -3,6 +3,8 @@ import '../../Stylesheets/login/login.css';
 import { Link } from 'react-router-dom';
 // import LogInArt from '../../Images/loginArt.jpg'
 
+const errorMessage = ["" , "Invalid Username or password", "Account successfully created"]
+
 class LogIn extends React.Component{
     state = {
         username: "",
@@ -88,26 +90,26 @@ class LogIn extends React.Component{
                                 {this.state.logInErrorMessage}
                             </div>
                         }
+                        {this.props.error &&
+                            <div className="log-in-error d-flex p-1 justify-content-center" style = {{ backgroundColor: `${this.props.statusCode === 2 ? "rgba(34,139,34,0.85)" : ""}` }} >
+                                {errorMessage[this.props.statusCode]}
+                            </div>
+                        }
                         <form className="d-flex flex-column align-items-center w-100 mx-auto" onSubmit={this.handleSubmit}>
                             <h2 className="mr-auto mb-3"> Log In to Enigma</h2>
 
-                                <span className="d-flex flex-column w-100 mb-4">
-                                    Username:
-                                    <input className="py-1 pl-0 pr-1" type="text" placeholder="User Name here" value={this.state.username} onChange={this.handleUserName} />
-                                </span>
+                            <span className="d-flex flex-column w-100 mb-4">
+                                Username:
+                                <input className="py-1 pl-0 pr-1" type="text" placeholder="User Name here" value={this.state.username} onChange={this.handleUserName} />
+                            </span>
 
-                                <span className="d-flex flex-column w-100 mb-4">
-                                    Password:
-                                    <input className="py-1 pl-0 pr-1" type="password" placeholder="Password here" value={this.state.password} onChange={this.handlePassword} />
-                                </span>
+                            <span className="d-flex flex-column w-100 mb-4">
+                                Password:
+                                <input className="py-1 pl-0 pr-1" type="password" placeholder="Password here" value={this.state.password} onChange={this.handlePassword} />
+                            </span>
 
-                                <input className="mr-auto mb-4 w-50 px-2 py-1 submit-button" type="submit" value="Log In" />
-                                <span className="sign-up-message">
-                                    Don't have an account? 
-                                    <strong onClick={this.props.switchingLogin}>Click here 
-                                    </strong> 
-                                    to SignUp
-                                </span>
+                            <input className="mr-auto mb-4 w-50 px-2 py-1 submit-button" type="submit" value="Log In" />
+                            <span className="sign-up-message"> Don't have an account? <strong onClick={this.props.switchingLogin}>Click here </strong>to SignUp</span>
                         </form>
                     </div>
                 </div>

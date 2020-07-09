@@ -10,7 +10,7 @@ class LogInDisplay extends React.Component{
         userLoggedIn: false,
         userId: "",
         logInPage: true,
-        hoverMenu: false,
+        statusCode: 0,
         uNameAvailable: true
     }
 
@@ -32,11 +32,16 @@ class LogInDisplay extends React.Component{
             localStorage.setItem("userId" , this.state.userId)
             :
             /* removing the error message after 3 seconds */
-            setTimeout( function(){
-                this.setState({
-                    error: false,
-                })
-            }.bind(this), 3000)
+            this.setState({
+                statusCode: 1
+            }, () => {
+                setTimeout( function(){
+                    this.setState({
+                        error: false,
+                        statusCode: 0
+                    })
+                }.bind(this), 3000)
+            })
         })
     }
 
@@ -46,7 +51,7 @@ class LogInDisplay extends React.Component{
         })
     }
 
-        /* function that checks if the username is available while new user
+    /* function that checks if the username is available while new user
      signing up, that is, 
      it is not used before */
      handleSignUpUserName = async(x) => {
@@ -75,7 +80,6 @@ class LogInDisplay extends React.Component{
 
     /* function that registers a new user to database */
     registerUser = async(x , y) => {
-
         /* making a post request to server with new user credentials */
         const requestOptions = {
             method: 'POST',
@@ -91,12 +95,14 @@ class LogInDisplay extends React.Component{
         serverResponse.userRegistered && 
             this.setState({
                 logInPage : !this.state.logInPage,
-                hoverMenu: true
+                error: true,
+                statusCode: 2
             }, () => {
                 /* hides success message after 3 seconds */
                 setTimeout( function(){
                     this.setState({
-                        hoverMenu: false
+                        error: false,
+                        statusCode: 2
                     })
                 }.bind(this), 3000)
             }) 
@@ -111,7 +117,7 @@ class LogInDisplay extends React.Component{
                         }} />
                 :
                 this.state.logInPage ?
-                <LogIn switchingLogin = {this.switchingLogin} hoverMenu = {this.state.hoverMenu} error = {this.state.error} checkCredentials={this.checkCredentials} />
+                <LogIn switchingLogin = {this.switchingLogin} statusCode = {this.state.statusCode} error = {this.state.error} checkCredentials={this.checkCredentials} />
                 :
                 <SignUp uNameAvailable = {this.state.uNameAvailable} checkUserName = {this.handleSignUpUserName} switchingLogin = {this.switchingLogin} registerUser = {this.registerUser} />
                 }

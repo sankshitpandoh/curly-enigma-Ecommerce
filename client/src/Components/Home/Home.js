@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header/Header.js';
-import {connect} from 'react-redux';
-import {logUserIn , logUserOut} from '../../actions/actions.js'
+// import {connect} from 'react-redux';
+// import {logUserIn , logUserOut} from '../../actions/actions.js'
 
 class Home extends React.Component{
     state = {
