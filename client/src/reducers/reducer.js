@@ -3,12 +3,13 @@ import * as actionHandlers from '../actions/actions.js';
 const getInitState = () => {
 	return {
 		userLoggedIn: false,
-		currentWishList: []
+        currentWishList: [],
+        currentCartItems : []
 	}
 }
 
 
-const PandohReducer = (state = getInitState(), action) => {
+const MainReducer = (state = getInitState(), action) => {
 	const actionHandlers = {
 		['SIGN_IN']() {
 			let newState = state;
@@ -26,4 +27,4 @@ const PandohReducer = (state = getInitState(), action) => {
 	return state;
 }
 
-export default PandohReducer    
+export default MainReducer    

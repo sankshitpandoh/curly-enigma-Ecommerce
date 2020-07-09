@@ -1,3 +1,26 @@
 .menu-container{
-    background-color: red;
+    background-color: #fff;
+    border-radius: 2px;
+}
+.menu-container .single-option{
+    background-color: #000;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    border: 1px solid #000;
+}
+.menu-container .single-option p {
+    color: #fff;
+    transition: 0.25s ease-in-out;
+    font-size: 13px;
+  font-family: 'OpenSans';
+}
+.menu-container .single-option:hover{
+    background-color: #fff;
+}
+.menu-container .single-option:hover p {
+    color: #000;
+}
+.menu-container .cart-price{
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
 }
