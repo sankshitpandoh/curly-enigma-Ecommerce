@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
-import UserLoggedIn from './reducer.js';
+import PandohReducer from './reducer.js';
+// import CurrentWishList from './reducer.js';
 
 const rootReducer = combineReducers({
-    UserLoggedIn
+    PandohReducer
 })
 
 export default rootReducer;

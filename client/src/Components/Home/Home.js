@@ -5,8 +5,9 @@ import {logUserIn , logUserOut} from '../../actions/actions.js'
 
 
 const MapStateToProps = (state) => {
+    console.log(state);
     return {    
-        UserLoggedIn: state.UserLoggedIn
+        UserLoggedIn: state.PandohReducer.userLoggedIn
     };
 };
 
@@ -33,10 +34,18 @@ class Home extends React.Component{
     // }
 
     render(){
+        console.log(this.props.UserLoggedIn)
         return( 
             <>
             <Header />
-                <button onClick = {this.props.logUserIn}>hey</button>
+        <button onClick = {this.props.logUserIn}> 
+        { String( this.props.UserLoggedIn ) }
+        </button>
+        <h1>
+        { String( this.props.UserLoggedIn ) }
+        {this.props.UserLoggedIn} 
+
+        </h1>
             </>
         )
     }

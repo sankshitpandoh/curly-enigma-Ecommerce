@@ -9,7 +9,7 @@ function Header(){
         return(
             <div className = "header-main py-2">
                 <div className="container">
-                    <div className="header-contents d-flex justify-content-between align-items-center">
+                    <div className="header-contents d-flex justify-content-between align-items-center mb-2">
                         <Logo />
                         <SocialNav />
                     </div>
