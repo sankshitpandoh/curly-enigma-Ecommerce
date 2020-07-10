@@ -1,10 +1,17 @@
 import React from 'react';
 import Header from './Header/Header.js';
-import SingleProduct from './Products/singleProduct.js';
+import {connect} from 'react-redux';
 import ProductContainer from './Products/productContainer.js';
 
 // import {connect} from 'react-redux';
 // import {logUserIn , logUserOut} from '../../actions/actions.js'
+
+const MapStateToProps = (state) => {
+    return {    
+        currentProduct : state.MainReducer.currentProduct,
+		openProduct: state.MainReducer.openProduct
+    };
+};
 
 class Home extends React.Component{
     state = {
@@ -53,4 +60,4 @@ class Home extends React.Component{
     }
 }
 
-export default Home
+export default  connect(MapStateToProps)(Home)
