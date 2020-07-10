@@ -1,0 +1,17 @@
+.item-container{
+    background-color: #000;
+}
+.item-container figure{
+    width: 100%;
+}
+.item-container .product-details{
+    font-size: 12px;
+    color: #fff;
+}
+.item-container .product-details .product-price{
+  font-family: 'Montserrat-Regular';
+  white-space: nowrap;
+}
+.item-container .product-details .product-name{
+    font-family: 'Montserrat-Light';
+  }

@@ -53,6 +53,18 @@ app.post('/signUpUser', (req, res) => {
     });
   });
 
+  app.get('/getNewProducts' , (req, res) => {
+    fs.readFile('./data-files/productsData.json', (err, data) => {
+      let dataArray = JSON.parse(data);
+      let responseObject = []
+      for(let i = 0; i < 6; i++){
+        let x = Math.floor(Math.random() * dataArray.length);
+        responseObject.push(dataArray[x])
+      }
+      res.send({responseObject : responseObject})
+    });
+  })
+
 /* Generates unique id for a new user */
 function makeUserId(){
     let result = '';
