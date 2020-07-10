@@ -9,16 +9,16 @@ import ProductContainer from './Products/productContainer.js';
 class Home extends React.Component{
     state = {
         wishList: [],
-        newProducts: []
+        newProducts: [],
+        topProducts: [],
+        saleProducts: []
     }
 
     componentDidMount(){
-        this.fetchNewProducts();
-        // this.fetchTopProducts();
-        // this.fetchSaleProducts();
+        this.fetchMiscProducts();
     }
 
-    fetchNewProducts = async() => {
+    fetchMiscProducts = async() => {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -27,8 +27,10 @@ class Home extends React.Component{
         let serverResponse = await response.json();
         console.log(serverResponse.responseObject)
         this.setState({
-            newProducts: serverResponse.responseObject,
-        },)
+            newProducts: serverResponse.responseObject.newProducts,
+            topProducts: serverResponse.responseObject.topProducts,
+            saleProducts: serverResponse.responseObject.saleProducts,
+        })
         
     }
 
@@ -40,9 +42,9 @@ class Home extends React.Component{
                 <div className="row">
                     <div className="col-3"></div>
                     <div className="col-9">
-                        <ProductContainer itemsData = {this.state.newProducts} />
-                        <ProductContainer itemsData = {[]} />
-                        <ProductContainer itemsData = {[]} />
+                        <ProductContainer sectionTitle = {"New Products"} itemsData = {this.state.newProducts} />
+                        <ProductContainer sectionTitle = {"Top Products"} itemsData = {this.state.topProducts} />
+                        <ProductContainer sectionTitle = {"Sale Products"} itemsData = {this.state.saleProducts} />
                     </div>
                 </div>
             </div>

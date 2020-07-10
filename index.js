@@ -53,13 +53,32 @@ app.post('/signUpUser', (req, res) => {
     });
   });
 
+  /* API responsible for sending misc product data */
   app.get('/getNewProducts' , (req, res) => {
     fs.readFile('./data-files/productsData.json', (err, data) => {
       let dataArray = JSON.parse(data);
-      let responseObject = []
-      for(let i = 0; i < 6; i++){
-        let x = Math.floor(Math.random() * dataArray.length);
-        responseObject.push(dataArray[x])
+      let responseObject = {
+        newProducts: [],
+        topProducts: [],
+        saleProducts: [],
+      }
+      responseObject.newProducts = dataArray.filter((el) => 
+        el.highlights === "new product"
+      );
+      if(responseObject.newProducts.length > 6){
+        responseObject.newProducts.splice(6, responseObject.newProducts.length - 1 )
+      }
+      responseObject.topProducts = dataArray.filter((el) => 
+        el.highlights === "top product"
+      );
+      if(responseObject.topProducts.length > 3){
+        responseObject.topProducts.splice(3, responseObject.topProducts.length - 1 )
+      }
+      responseObject.saleProducts = dataArray.filter((el) => 
+        el.highlights === "sale product"
+      );
+      if(responseObject.saleProducts.length > 3){
+        responseObject.saleProducts.splice(3, responseObject.saleProducts.length - 1 )
       }
       res.send({responseObject : responseObject})
     });

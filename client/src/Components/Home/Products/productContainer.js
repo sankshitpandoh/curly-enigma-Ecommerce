@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleProduct from './singleProduct';
+import '../../../Stylesheets/Home/Products/productContainer.css'
 
 class ProductContainer extends React.Component{
     render(){
@@ -9,8 +10,11 @@ class ProductContainer extends React.Component{
             </div>
         })
         return(
-            <div className="row py-2 px-1">
-                {items}
+            <div className="product-container py-2">
+                <h2>{this.props.sectionTitle}</h2>
+                <div className="row py-2 px-1">
+                    {items}
+                </div>
             </div>
         )
     }
