@@ -19,12 +19,12 @@ const MapDispatchToProps = (dispatch) => {
 };
 
 function CartWishList(props){
-    const cartPrice = 0
+    let cartPrice = 0
     props.cartItems.map((x,index) => {
         cartPrice = cartPrice + x.price
     })
     return(
-        <div className="menu-container w-25">
+        <div className="menu-container">
             <div className="d-flex flex-wrap">
                 <div className="col-6 p-0">
                     <Link to = {props.userLoggedIn ? "/user" : "/login"}>

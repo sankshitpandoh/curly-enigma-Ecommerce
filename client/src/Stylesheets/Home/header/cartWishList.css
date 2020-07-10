@@ -1,5 +1,6 @@
 .menu-container{
     border-radius: 2px;
+    width: 250px;
 }
 .menu-container .single-option{
     background-color: #000;
@@ -10,7 +11,7 @@
 .menu-container .single-option p {
     color: #fff;
     transition: 0.25s ease-in-out;
-    font-size: 13px;
+    font-size: 12px;
   font-family: 'OpenSans';
 }
 .menu-container .single-option:hover{
