@@ -1,0 +1,23 @@
+.product-details-container h1{
+    color: #000;
+    font-family: 'Montserrat-Regular';
+    font-size: 30px;
+    text-align: left;
+}
+.product-details-container .price-container .price{
+    font-size: 18px;
+    color: #000;
+    font-family: 'Montserrat-Regular';
+    text-decoration: wavy;
+    font-style: italic;
+}
+.product-details-container .price-container p{
+    font-size: 12px;
+    color: #444;
+}
+.product-details-container .price-container p span{
+    color: #000;
+}
+.product-details-container .price-container p .no-stock{
+    color: red;
+}

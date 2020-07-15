@@ -25,6 +25,10 @@ const MainReducer = (state = getInitState(), action) => {
 			let newState = state;
 			let nProduct = action.payload;
 			return Object.assign({}, newState, { currentProduct: nProduct, openProduct: true });
+		},
+		['CLOSE_PRODUCT'](){
+			let newState = state;
+			return Object.assign({}, newState, {openProduct: false});
 		}
 	}
 	if(action.type in actionHandlers) {

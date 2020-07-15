@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header/Header.js';
 import {connect} from 'react-redux';
 import ProductContainer from './Products/productContainer.js';
+import SignleExpanedProduct from './Products/singleExpandedProduct.js';
 
 // import {connect} from 'react-redux';
 // import {logUserIn , logUserOut} from '../../actions/actions.js'
@@ -49,9 +50,15 @@ class Home extends React.Component{
                 <div className="row">
                     <div className="col-3"></div>
                     <div className="col-9">
-                        <ProductContainer sectionTitle = {"New Products"} itemsData = {this.state.newProducts} />
-                        <ProductContainer sectionTitle = {"Top Products"} itemsData = {this.state.topProducts} />
-                        <ProductContainer sectionTitle = {"Sale Products"} itemsData = {this.state.saleProducts} />
+                        {this.props.openProduct ? 
+                            <SignleExpanedProduct />
+                            :
+                            <>
+                            <ProductContainer sectionTitle = {"New Products"} itemsData = {this.state.newProducts} />
+                            <ProductContainer sectionTitle = {"Top Products"} itemsData = {this.state.topProducts} />
+                            <ProductContainer sectionTitle = {"Sale Products"} itemsData = {this.state.saleProducts} />
+                            </>
+                        }
                     </div>
                 </div>
             </div>

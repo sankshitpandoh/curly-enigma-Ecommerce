@@ -16,3 +16,9 @@ export const openProduct = (data) => {
         payload: data
     }
 }
+
+export const closeProduct = (data) => {
+    return{
+        type: "CLOSE_PRODUCT"
+    }
+}
