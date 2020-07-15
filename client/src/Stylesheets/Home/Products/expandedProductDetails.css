@@ -1,3 +1,17 @@
+.product-details-container .price-container{
+    position: relative;
+}
+.product-details-container .price-container::after{
+    content: "";
+    position: absolute;
+    bottom: -35%;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    background-color: lightgray;
+    opacity: 0.75;
+    /* transform: translate(-50%,-50%); */
+}
 .product-details-container h1{
     color: #000;
     font-family: 'Montserrat-Regular';
@@ -14,10 +28,33 @@
 .product-details-container .price-container p{
     font-size: 12px;
     color: #444;
+    font-family: "OpenSans";
 }
 .product-details-container .price-container p span{
     color: #000;
+    font-weight: 600;
 }
 .product-details-container .price-container p .no-stock{
     color: red;
+    font-weight: 600;
+}
+.product-details-container .quick-overview-container{
+    font-size: 13px;
+    font-family: 'Montserrat-Light';
+    position: relative;
+}
+.product-details-container .quick-overview-container::after{
+    content: "";
+    position: absolute;
+    bottom: -8%;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    background-color: lightgray;
+    opacity: 0.75;
+}
+.product-details-container .heading{
+    font-size: 15px;
+    font-family: 'Montserrat-Regular';
+    font-weight: 100;
 }
